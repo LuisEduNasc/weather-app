@@ -1,3 +1,13 @@
+## To run the project
+
+Create a .env file in the root directory with the variable: REACT_APP_API_KEY={OPENWEATHERMAP API KEY}
+
+### `npm install`
+
+### `npm run start`
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
