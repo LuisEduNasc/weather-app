@@ -53,6 +53,7 @@ export interface IWeatherResponse {
 }
 
 export const fetchCities = async (searchValue: string): Promise<ICityResponse[]> => {
+  console.log('env...', process.env.NODE_ENV)
   const response = await axios({
     url: `${process.env.NODE_ENV === 'production' ? 'https://cors-anywhere.herokuapp.com/' : ''}http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=50&appid=${process.env.REACT_APP_API_KEY}`,
     method: 'get',
