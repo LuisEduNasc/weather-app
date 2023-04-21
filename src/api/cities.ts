@@ -54,6 +54,7 @@ export interface IWeatherResponse {
 
 export const fetchCities = async (searchValue: string): Promise<ICityResponse[]> => {
   const response = await axios({
+    baseURL: process.env.NODE_ENV == 'production' ? 'https://weather-leis-app.herokuapp.com' : 'localhost:3000',
     url: `http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=50&appid=${process.env.REACT_APP_API_KEY}`,
     method: 'get',
   }).then(({ data }) => {
@@ -66,6 +67,7 @@ export const fetchCities = async (searchValue: string): Promise<ICityResponse[]>
 
 export const fetchWeather = async ({lat, lon, temp = 'imperial'}: {lat: number | undefined, lon: number | undefined, temp: string | undefined}): Promise<IWeatherResponse> => {
   const response = await axios({
+      baseURL: process.env.NODE_ENV == 'production' ? 'https://weather-leis-app.herokuapp.com' : 'localhost:3000',
       url: `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_API_KEY}&units=${temp}`,
       method: 'get'
     }).then(({ data }) => {

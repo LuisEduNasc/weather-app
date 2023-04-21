@@ -9,7 +9,7 @@ import {
 
 export const RecentSearches: React.FC<{ open: boolean }> = ({ open }) => {
   const citiesCache = localStorage.getItem('cities-cache') || ''
-  let citiesArray: Array<string | any> = [...citiesCache.split(',')]
+  let citiesArray: Array<string | any> = [...citiesCache.split(',')].reverse()
 
   return (
     <RecentSearchesContainer open={open}>
