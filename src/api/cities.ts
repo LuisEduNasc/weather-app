@@ -54,7 +54,7 @@ export interface IWeatherResponse {
 
 export const fetchCities = async (searchValue: string): Promise<ICityResponse[]> => {
   const response = await axios({
-    url: `http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=50&appid=${process.env.REACT_APP_API_KEY}`,
+    url: `https://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=50&appid=${process.env.REACT_APP_API_KEY}`,
     method: 'get',
   }).then(({ data }) => {
     const cities: ICityResponse[] = data;
