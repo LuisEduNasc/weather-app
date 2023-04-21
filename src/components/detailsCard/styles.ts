@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import weatherImg from '../../assets/img/weather.jpg'
-import tempImg from '../../assets/img/temperature.jpg'
-import windImg from '../../assets/img/wind.jpg'
 
 interface IValue {
   size?: number | undefined
@@ -21,7 +18,7 @@ export const DetailsList = styled.ul`
   list-style: none;
 `;
 
-export const DetailsListItem = styled.li`
+export const DetailsListItem = styled.li<{ img: any }>`
   position: relative;
   width: 150px;
   height: 200px;
@@ -32,21 +29,10 @@ export const DetailsListItem = styled.li`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  background-image: url(${(props) => props.img});
 
   &:not(:first-child) {
     margin-left: 22px;
-  }
-
-  &:first-child {
-    background-image: url(${weatherImg});
-  }
-
-  &:nth-child(2) {
-    background-image: url(${tempImg});
-  }
-
-  &:nth-child(3) {
-    background-image: url(${windImg});
   }
 `;
 
